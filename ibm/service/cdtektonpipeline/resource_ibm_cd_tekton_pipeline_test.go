@@ -462,6 +462,7 @@ func TestResourceIBMCdTektonPipelineTriggerToMap(t *testing.T) {
 		model["source"] = []map[string]interface{}{triggerSourceModel}
 		model["events"] = []string{"push", "pull_request"}
 		model["filter"] = "header['x-github-event'] == 'push' && body.ref == 'refs/heads/main'"
+		model["limit_waiting_runs"] = false
 		model["cron"] = "testString"
 		model["timezone"] = "America/Los_Angeles, CET, Europe/London, GMT, US/Eastern, or UTC"
 		model["secret"] = []map[string]interface{}{genericSecretModel}
@@ -523,6 +524,7 @@ func TestResourceIBMCdTektonPipelineTriggerToMap(t *testing.T) {
 	model.Source = triggerSourceModel
 	model.Events = []string{"push", "pull_request"}
 	model.Filter = core.StringPtr("header['x-github-event'] == 'push' && body.ref == 'refs/heads/main'")
+	model.LimitWaitingRuns = core.BoolPtr(false)
 	model.Cron = core.StringPtr("testString")
 	model.Timezone = core.StringPtr("America/Los_Angeles, CET, Europe/London, GMT, US/Eastern, or UTC")
 	model.Secret = genericSecretModel
@@ -771,6 +773,7 @@ func TestResourceIBMCdTektonPipelineTriggerScmTriggerToMap(t *testing.T) {
 		model["source"] = []map[string]interface{}{triggerSourceModel}
 		model["events"] = []string{"push", "pull_request"}
 		model["filter"] = "header['x-github-event'] == 'push' && body.ref == 'refs/heads/main'"
+		model["limit_waiting_runs"] = false
 
 		assert.Equal(t, result, model)
 	}
@@ -821,6 +824,7 @@ func TestResourceIBMCdTektonPipelineTriggerScmTriggerToMap(t *testing.T) {
 	model.Source = triggerSourceModel
 	model.Events = []string{"push", "pull_request"}
 	model.Filter = core.StringPtr("header['x-github-event'] == 'push' && body.ref == 'refs/heads/main'")
+	model.LimitWaitingRuns = core.BoolPtr(false)
 
 	result, err := cdtektonpipeline.ResourceIBMCdTektonPipelineTriggerScmTriggerToMap(model)
 	assert.Nil(t, err)

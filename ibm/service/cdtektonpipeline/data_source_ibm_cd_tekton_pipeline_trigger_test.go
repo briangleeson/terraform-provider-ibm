@@ -54,6 +54,7 @@ func TestAccIBMCdTektonPipelineTriggerDataSourceAllArgs(t *testing.T) {
 	triggerLimitWaitingRuns := "true"
 	triggerEnableEventsFromForks := "true"
 	triggerFilter := fmt.Sprintf("tf_filter_%d", acctest.RandIntRange(10, 100))
+	triggerLimitWaitingRuns := "true"
 	triggerCron := fmt.Sprintf("tf_cron_%d", acctest.RandIntRange(10, 100))
 	triggerTimezone := fmt.Sprintf("tf_timezone_%d", acctest.RandIntRange(10, 100))
 
